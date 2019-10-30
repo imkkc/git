@@ -1,9 +1,32 @@
+git配置user.name和user.email 解决github提交不是自己的名字
+
+如果你公司的项目是放在自建的gitlab上面, 如果你不进行配置用户名和邮箱的话, 则会使用全局的, 自己实验项目也会默认用这个，不太好
+正确的做法是在项目根目录下进行单独配置，公司项目或者个人项目都这样做
+
+$ git config user.name “your Name”
+$ git config user.email “gitlab@xx.com”
+
 git使用
-   3. 用git config命令查看配置文件
-   查看当前生效的配置，命令：git config -l
-命令参数 –list, 简写 -l
-格式：git config [–local|–global|–system] -l
-查看仓库级的config，即.git/.config，命令：git config –local -l
-查看全局级的config，即C:\Users\zuoyu.ht\.gitconfig，命令：git config –global -l
-查看系统级的config，即D:\Program Files\Git\etc\gitconfig，命令：git config –system -l
+用git config命令查看配置文件
+查看当前生效的配置，命令：git config -l
+查看仓库级的config，命令：git config –local -l
+查看全局级的config，命令：git config –global -l
+查看系统级的config，命令：git config –system -l
 查看当前生效的配置，命令：git config -l，这个时候会显示最终三个配置文件计算后的配置信息
+
+github在统计提交的时候，会判断邮箱是否跟github的登陆邮箱匹配，不匹配则不计算活跃度，即不生成小绿块。
+
+获取当前配置
+$ git config user.email 
+$ git config user.name 
+
+设置当前仓库的user.name/user.email
+PS E:\mysite> git config user.name aaa 
+PS E:\mysite> git config user.email aaa@camnpr.com
+
+设置全局user.name/user.email
+E:\mysite> git config --global user.name bbb
+E:\mysite> git config --global user.email bbb@gmail.com
+
+如果当前仓库未设置user.name/user.email则采用全局的,
+否则当前仓库的user.name/user.email会覆盖全局的user.name/user.email。
