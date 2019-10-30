@@ -1,0 +1,9 @@
+git使用
+   3. 用git config命令查看配置文件
+   查看当前生效的配置，命令：git config -l
+命令参数 –list, 简写 -l
+格式：git config [–local|–global|–system] -l
+查看仓库级的config，即.git/.config，命令：git config –local -l
+查看全局级的config，即C:\Users\zuoyu.ht\.gitconfig，命令：git config –global -l
+查看系统级的config，即D:\Program Files\Git\etc\gitconfig，命令：git config –system -l
+查看当前生效的配置，命令：git config -l，这个时候会显示最终三个配置文件计算后的配置信息
